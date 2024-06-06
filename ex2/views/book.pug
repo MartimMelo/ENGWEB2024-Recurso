@@ -1,0 +1,72 @@
+extends layout
+
+block content
+  a(href='/') Voltar
+  .w3-card-4
+    header.w3-pink
+      h2.w3-center Book
+    .w3-container
+      if book._id
+        p id: #{book._id}
+      if book.title
+        p title: #{book.title}
+      if book.series
+        p series: #{book.series}
+      if book.author
+        p author: #{book.author}
+      if book.rating
+        p rating: #{book.rating}
+      if book.description
+        p description: #{book.description}
+      if book.language
+        p language: #{book.language}
+      if book.isbn
+        p isbn: #{book.isbn}
+      if book.genres
+        - var genresText = "Genres: "
+        each genre in book.genres
+          - genresText += genre + ", "
+        p= genresText.trim()
+      if book.characters
+        - var charactersText = "Characters: "
+        each character in book.characters
+          - charactersText += character + ", "
+        p= charactersText.trim()
+      if book.awards
+        - var awardsText = "Awards: "
+        each award in book.awards
+          - awardsText += award + ", "
+        p= awardsText.trim()
+      if book.settings
+        - var settingsText = "Settings: "
+        each setting in book.settings
+          - settingsText += setting + ", "
+        p= settingsText.trim()
+      if book.ratingsByStars
+        - var ratingsText = "Ratings By Stars: "
+        each rating in book.ratingsByStars
+          - ratingsText += rating + ", "
+        p= ratingsText.trim()
+      if book.bookFormat
+        p bookFormat: #{book.bookFormat}
+      if book.edition
+        p edition: #{book.edition}
+      if book.pages
+        p pages: #{book.pages}
+      if book.publisher
+        p publisher: #{book.publisher}
+      if book.publishDate
+        p publishDate: #{book.publishDate}
+      if book.firstPublishDate
+        p firstPublishDate: #{book.firstPublishDate}
+      if book.likedPercent
+        p likedPercent: #{book.likedPercent}
+      if book.coverImg
+        p coverImg:
+        img(src=book.coverImg alt="Book Cover")
+      if book.bbeScore
+        p bbeScore: #{book.bbeScore}
+      if book.bbeVotes
+        p bbeVotes: #{book.bbeVotes}
+      if book.price
+        p price: #{book.price}

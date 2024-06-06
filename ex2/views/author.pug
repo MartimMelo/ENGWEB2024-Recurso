@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  p Voltar para a 
+    a(href="/") página inicial
+  h3 Autor (Identificador): '#{author}'
+  p Número de livros publicados: #{livros.length}
+  table.w3-table
+    thead
+        tr
+            th Identificador
+            th Título
+            th Autores
+            th Data de Publicação
+            th Número de Páginas
+    tbody
+        each livro in livros
+            tr
+                td
+                    a(href="/" + livro._id)= livro._id.substring(0, 50)
+                td= livro.title
+                td
+                    if livro.author && Array.isArray(livro.author)
+                        each author in livro.author
+                            a(href="/authors/" + author)= author
+                            | &nbsp;
+                    else
+                        | N/A
+                td= livro.publishDate
+                td= livro.pages

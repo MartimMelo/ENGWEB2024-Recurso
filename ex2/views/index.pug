@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .w3-card-4
+    header.w3-pink
+      h2.w3-center Filmes
+    .w3-container
+      table.w3-table-all
+        thead
+          tr
+            th _id
+            th title
+            th author
+            th publishDate
+            th pages
+        tbody
+          each book in books
+            tr
+              td
+                a(href='/' + book._id)= book._id
+              td= book.title
+              
+              td
+                a(href='/author/' + book.author)= book.author
+              td= book.publishDate
+              td= book.pages
+              
